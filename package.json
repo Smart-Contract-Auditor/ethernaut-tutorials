@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fallback": "node contracts/1-fallback/Fallback.js",
+    "test-fallback": "npx hardhat test test/1-fallback/Fallback.js"
   },
   "author": "",
   "license": "ISC",

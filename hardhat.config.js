@@ -1,21 +1,24 @@
 require("dotenv").config();
 require("@nomicfoundation/hardhat-toolbox");
 
-const KEY = process.env.SECRET_KEY;
+const ALCHEMY_KEY = process.env.ALCHEMY_KEY;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  defaultNetwork: "mumbai",
+  defaultNetwork: "hardhat",
   networks: {
     hardhat: {
-    },
-    mumbai: {
       forking: {
-        url: "https://endpoints.omniatech.io/v1/matic/mumbai/public"
+        url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_KEY}`
       },
-      url: "https://endpoints.omniatech.io/v1/matic/mumbai/public",
-      accounts: [KEY]
-    }
+      chains: {
+        80001: {
+          hardforkHistory: {
+            london: 23850000
+          }
+        }
+      }
+    },
   },
   solidity: "0.8.24"
 };

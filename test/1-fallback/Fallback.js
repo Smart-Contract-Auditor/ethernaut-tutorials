@@ -1,19 +1,24 @@
 const { ethers } = require("hardhat")
 const { expect } = require("chai");
+const abi = require("../../artifacts/contracts/1-fallback/Fallback.sol/Fallback.json").abi;
+
+const FALLBACK_ADDRESS = "0x79F6562E605cDC40974d6675aa44DE518fA95359";
+const PLAYER_ADDRESS = "0x08187eCD067e0bA4739e3a1520cFe8cbAD410a09";
 
 describe("Fallback", async () => {
 
-    const FALLBACK_INSTANCE = "0xA56F78be6083Bf002EB301B3F0Ea1cFBcDB68D9c";
+    const provider = new ethers.JsonRpcProvider(`https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`);
+    it("Should verify the contract owner.", async () => {
+        const fallbackContract = new ethers.Contract(FALLBACK_ADDRESS, abi, provider);
+        const owner = await fallbackContract.owner();
+        console.log("owner is: ", owner);
+        expect(owner).to.equal(PLAYER_ADDRESS);
+    });
 
-    it("Should call the fallback contribute.", async () => {
-        const iface = new ethers.Interface(["function contribute()"]);
-        console.log("network: ", JSON.stringify(await ethers.provider.getNetwork()))
-        const tx = await ethers.provider.call({
-            to: FALLBACK_INSTANCE,
-            data: iface.encodeFunctionData("contribute()", []),
-            value: ethers.parseUnits("1", "wei")
-        })
-        console.log("tx: ", tx);
-        expect(tx).to.not.be.null;
-    })
+    it("Should very the balance is zero.", async () => {
+        const balance = await provider.getBalance(FALLBACK_ADDRESS);
+        console.log("balance is: ", balance);
+        expect(balance).to.equal(0);
+    });
+
 })
