@@ -2,10 +2,10 @@ const { ethers } = require("ethers");
 const abi = require("../../artifacts/contracts/1-fallback/Fallback.sol/Fallback.json").abi;
 require("dotenv").config();
 
-const FALLBACK_ADDRESS = "0x79F6562E605cDC40974d6675aa44DE518fA95359";
+const FALLBACK_ADDRESS = "";
 
 fallbackAttack = async () => {
-    const provider = new ethers.JsonRpcProvider(`https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`);
+    const provider = new ethers.JsonRpcProvider(`https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`);
     const wallet = new ethers.Wallet(process.env.METAMASK_KEY, provider);
     const fallbackContract = new ethers.Contract(FALLBACK_ADDRESS, abi, wallet);
     let tx = await fallbackContract.contribute({ 

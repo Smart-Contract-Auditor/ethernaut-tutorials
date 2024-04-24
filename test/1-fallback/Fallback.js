@@ -2,12 +2,12 @@ const { ethers } = require("hardhat")
 const { expect } = require("chai");
 const abi = require("../../artifacts/contracts/1-fallback/Fallback.sol/Fallback.json").abi;
 
-const FALLBACK_ADDRESS = "0x79F6562E605cDC40974d6675aa44DE518fA95359";
+const FALLBACK_ADDRESS = "";
 const PLAYER_ADDRESS = "0x08187eCD067e0bA4739e3a1520cFe8cbAD410a09";
 
 describe("Fallback", async () => {
 
-    const provider = new ethers.JsonRpcProvider(`https://polygon-mumbai.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`);
+    const provider = new ethers.JsonRpcProvider(`https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`);
     it("Should verify the contract owner.", async () => {
         const fallbackContract = new ethers.Contract(FALLBACK_ADDRESS, abi, provider);
         const owner = await fallbackContract.owner();
@@ -15,7 +15,7 @@ describe("Fallback", async () => {
         expect(owner).to.equal(PLAYER_ADDRESS);
     });
 
-    it("Should very the balance is zero.", async () => {
+    it("Should verify the balance is zero.", async () => {
         const balance = await provider.getBalance(FALLBACK_ADDRESS);
         console.log("balance is: ", balance);
         expect(balance).to.equal(0);

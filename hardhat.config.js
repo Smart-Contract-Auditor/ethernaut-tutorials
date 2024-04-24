@@ -9,16 +9,15 @@ module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_KEY}`
-      },
-      chains: {
-        80001: {
-          hardforkHistory: {
-            london: 23850000
-          }
-        }
+        url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_KEY}`
       }
     },
   },
-  solidity: "0.8.24"
+  solidity: {
+    compilers: [
+      { version: "0.4.23" },
+      { version: "0.6.0" },
+      { version: "0.8.24" }
+    ]
+  }
 };

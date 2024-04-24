@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "fallback": "node contracts/1-fallback/Fallback.js",
-    "test-fallback": "npx hardhat test test/1-fallback/Fallback.js"
+    "test-fallback": "npx hardhat test test/1-fallback/Fallback.js",
+    "fallout": "node contracts/2-fallout/Fallout.js",
+    "test-fallout": "npx hardhat test test/2-fallout/Fallout.js"
   },
   "author": "",
   "license": "ISC",
