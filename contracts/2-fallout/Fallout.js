@@ -12,7 +12,7 @@ falloutAttack = async () => {
         gasLimit: 3000000,
         gasPrice: ethers.parseUnits("5", "gwei")
     });
-    await tx.wait()
+    await tx.wait();
 };
 
 falloutAttack();
