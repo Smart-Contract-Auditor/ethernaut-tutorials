@@ -7,7 +7,9 @@
     "fallback": "node contracts/1-fallback/Fallback.js",
     "test-fallback": "npx hardhat test test/1-fallback/Fallback.js",
     "fallout": "node contracts/2-fallout/Fallout.js",
-    "test-fallout": "npx hardhat test test/2-fallout/Fallout.js"
+    "test-fallout": "npx hardhat test test/2-fallout/Fallout.js",
+    "coin-flip": "node contracts/3-coin-flip/CoinFlipAttack.js",
+    "test-coin-flip": "npx hardhat test test/3-coin-flip/CoinFlip.js"
   },
   "author": "",
   "license": "ISC",

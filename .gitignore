@@ -5,6 +5,9 @@ node_modules
 /cache
 /artifacts
 
+# Ignition deployment history
+/ignition/deployments
+
 # TypeChain files
 /typechain
 /typechain-types
