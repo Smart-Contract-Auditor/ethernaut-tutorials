@@ -1,17 +1,17 @@
 {
   "name": "ethernaut",
   "version": "1.0.0",
-  "description": "",
+  "description": "A collection of Ethernaut challenges and their solutions.",
   "main": "index.js",
   "scripts": {
     "fallback": "node contracts/1-fallback/Fallback.js",
-    "test-fallback": "npx hardhat test test/1-fallback/Fallback.js",
+    "test-fallback": "npx hardhat test test/1-fallback/Fallback.js --network sepolia",
     "fallout": "node contracts/2-fallout/Fallout.js",
-    "test-fallout": "npx hardhat test test/2-fallout/Fallout.js",
+    "test-fallout": "npx hardhat test test/2-fallout/Fallout.js --network sepolia",
     "coin-flip": "node contracts/3-coin-flip/CoinFlipAttack.js",
-    "test-coin-flip": "npx hardhat test test/3-coin-flip/CoinFlip.js"
+    "test-coin-flip": "npx hardhat test test/3-coin-flip/CoinFlip.js --network sepolia"
   },
-  "author": "",
+  "author": "Smart Contract Auditor",
   "license": "ISC",
   "dependencies": {
     "dotenv": "16.4.5"

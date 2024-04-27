@@ -7,7 +7,7 @@ const PLAYER_ADDRESS = "0x08187eCD067e0bA4739e3a1520cFe8cbAD410a09";
 
 describe("Fallback", async () => {
 
-    const provider = new ethers.JsonRpcProvider(`https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`);
+    const provider = ethers.provider;
     it("Should verify the contract owner.", async () => {
         const falloutContract = new ethers.Contract(FALLOUT_ADDRESS, abi, provider);
         const owner = await falloutContract.owner();
