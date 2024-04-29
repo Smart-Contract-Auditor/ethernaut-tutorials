@@ -9,7 +9,9 @@
     "fallout": "node contracts/2-fallout/Fallout.js",
     "test-fallout": "npx hardhat test test/2-fallout/Fallout.js --network sepolia",
     "coin-flip": "node contracts/3-coin-flip/CoinFlipAttack.js",
-    "test-coin-flip": "npx hardhat test test/3-coin-flip/CoinFlip.js --network sepolia"
+    "test-coin-flip": "npx hardhat test test/3-coin-flip/CoinFlip.js --network sepolia",
+    "telephone": "node contracts/4-telephone/Telephone.js",
+    "test-telephone": "npx hardhat test test/4-telephone/Telephone.js --network sepolia"
   },
   "author": "Smart Contract Auditor",
   "license": "ISC",
